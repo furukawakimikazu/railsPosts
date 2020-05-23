@@ -1,2 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section class="navbar-expand-lg navbar-dark bg-success">
+  <div class="container py-4">
+    <h1 class="text-light d-inline">
+      <%= @user.username %>さん
+    </h1>
+    <% if @user.id == current_user.id %>
+    <p class= 'text-light d-inline ml-4'>
+      <%= @user.email %>
+    </p>
+    <p class= 'd-inline' style="margin-left: 40rem;">
+      <%= link_to '編集', edit_user_path(@user), class: 'text-light' %>
+    </p>
+    <% end %>
+  </div>
+</section>
+
+<section>
+  <div class="container mt-5">
+    <div class="row my-2 border border-success">
+      <div class="col-md-3 offset-1">
+        <figure>
+          <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: 'img-fluid' %>
+        </figure>
+      </div>
+      <div class="col-md-7">
+        <%= @user.profile %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
