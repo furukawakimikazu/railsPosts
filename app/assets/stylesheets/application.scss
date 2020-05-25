@@ -12,9 +12,11 @@
 
 .alert-notice {
   @extend .alert-info;
+  margin-bottom: -1rem;
 }
 
 .alert-alert {
   @extend .alert-danger;
+  margin-bottom: -1rem;
 }
 

@@ -1,2 +1,42 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<section class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container py-3 d-flex">
+    <h2 class="text-light">
+    プロフィール編集
+    </h2>
+    <h5 class="ml-auto">
+    <%= link_to 'パスワード編集', edit_user_registration_path, class: 'text-light' %>
+    </h5>
+  </div>
+</section>
+
+<div class="container-login">
+<section>
+  <%= form_for @user do |f| %>
+
+    <div class="form-group">
+      <%= f.label :username %>  
+      <%= f.text_field :username, autofocus: true, autocomplete: 'username', class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :profile, "プロフィール" %>
+      <%= f.text_area :profile, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :profile_image, "プロフィール画像" %>
+        <%= f.attachment_field :profile_image, class: "form-control" %>
+    </div>
+
+        <%= f.submit "更新", class: 'btn btn-primary btn-block mt-5' %>
+  <% end %>
+</section>
+</div>
+
+

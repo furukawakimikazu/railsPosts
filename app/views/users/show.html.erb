@@ -1,15 +1,15 @@
-<section class="navbar-expand-lg navbar-dark bg-success">
-  <div class="container py-4">
-    <h1 class="text-light d-inline">
+<section class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container py-3 d-flex">
+    <h1 class="text-light">
       <%= @user.username %>さん
     </h1>
     <% if @user.id == current_user.id %>
-    <p class= 'text-light d-inline ml-4'>
+    <p class= 'text-light ml-4'>
       <%= @user.email %>
     </p>
-    <p class= 'd-inline' style="margin-left: 40rem;">
+    <h5 class= 'ml-auto' >
       <%= link_to '編集', edit_user_path(@user), class: 'text-light' %>
-    </p>
+    </h5>
     <% end %>
   </div>
 </section>
