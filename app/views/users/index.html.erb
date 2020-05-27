@@ -15,7 +15,7 @@
             <div class="card-image">
               <figure class="image">
                 <%= link_to user do %>
-                  <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'img-fluid' %>
+                  <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'object-fit' %>
                 <% end %>
               </figure>
               <div class="card-body">
