@@ -1,0 +1,32 @@
+<section class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container py-3 d-flex">
+    <h2 class="text-light">
+    新規投稿
+    </h2>
+  </div>
+</section>
+
+<div class="container-login">
+  <section>
+    <%= form_for @post do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, autofocus: true, autocomplete: 'tilte', class: 'form-control' %>
+      </div>
+
+      <div class="from-group mt-3">
+      <%= f.label :body, "本文" %>
+      <%= f.text_area :body, autofocus: true, autocomplete: 'body', class: 'form-control' %>
+      </div>
+
+      <div class="from-group mt-3">
+        <%= f.label :image, "イメージ" %>
+        <%= f.attachment_field :image, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '投稿する', class: 'btn btn-success btn-block mt-5' %>
+
+      <% end %>
+  </section>
+</div>
+
