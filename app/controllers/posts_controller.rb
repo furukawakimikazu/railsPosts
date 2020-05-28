@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    find_post
   end
 
   def new
@@ -21,11 +22,19 @@ class PostsController < ApplicationController
     
   end
   
-
   def edit
-    @post = Post.find(params[:id])
+    find_post
     if @post.user != current_user
       redirect_to recipes_path, alert: "不正なアクセスです。"
+    end
+  end
+
+  def update
+    find_post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render :edit
     end
   end
 
@@ -33,5 +42,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body, :image)
     end
+
+    def find_post
+      @post = Post.find(params[:id])
+    end
+    
     
 end

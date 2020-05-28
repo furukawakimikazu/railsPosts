@@ -1,2 +1,18 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+  
+  <div class="card text-center" style="width:15rem;">
+    <% @posts.each do |post| %>
+      <%= attachment_image_tag post, :image, class: 'object-fit' %>
+      <div class="card-body">
+        <h5 class="card-title"><%= post.user.username %>さん</h5>
+        <time><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+
+        <h6 class="card-subtitle text-muted">Subtitle</h6>
+        <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+        <a href="#" class="card-link">Card link</a>
+      </div>
+    <% end %>
+  </div>
+
