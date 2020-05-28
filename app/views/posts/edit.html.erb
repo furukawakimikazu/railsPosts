@@ -1,2 +1,31 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<section class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container py-3 d-flex">
+    <h2 class="text-light">
+    投稿編集
+    </h2>
+  </div>
+</section>
+
+<div class="container-login">
+  <section>
+    <%= form_for @post do |f| %>
+
+      <div class="form-group">
+        <%= f.label :tilte, 'タイトル' %>  
+        <%= f.text_field :title, autofocus: true, autocomplete: 'title', class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :body, '本文' %>
+        <%= f.text_area :body, autofocus: true, autocomplete: 'body', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :image, "画像" %>
+          <%= f.attachment_field :image, class: "form-control" %>
+      </div>
+
+          <%= f.submit "更新", class: 'btn btn-primary btn-block mt-5' %>
+    <% end %>
+  </section>
+</div>

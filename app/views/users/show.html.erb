@@ -16,15 +16,15 @@
 
 <section>
   <div class="container mt-5">
-    <div class="row my-2 border border-success">
-      <div class="col-md-3 offset-1">
-        <figure>
+    <div class="row">
+      <div class="col-lg-5 offset-1 align-self-baseline">
           <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: 'img-fluid' %>
-        </figure>
       </div>
-      <div class="col-md-7">
+
+      <div class="col-lg-5 pt-3 pt-lg-0 content">
         <%= @user.profile %>
       </div>
+      
     </div>
   </div>
 </section>

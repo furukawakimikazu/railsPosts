@@ -23,6 +23,10 @@ class PostsController < ApplicationController
   
 
   def edit
+    @post = Post.find(params[:id])
+    if @post.user != current_user
+      redirect_to recipes_path, alert: "不正なアクセスです。"
+    end
   end
 
   private
