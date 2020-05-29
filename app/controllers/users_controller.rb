@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
-  before_action :find_user
+  before_action :find_params, only: [:show, :edit, :update]
 
   def index
     @users = User.all
   end
 
   def show
-    find_user
+
   end
 
   def edit
-    find_user
+
   end
 
   def update
-    find_user
     if @user.update(user_params)
       redirect_to @user
     else
@@ -27,10 +26,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :profile, :profile_image)
     end
 
-    def find_user
-      @user = User.find(params[:id]) 
+    def find_params
+      @user = User.find(params[:id])
     end
-    
-  
-  
+
 end

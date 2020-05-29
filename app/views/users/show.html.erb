@@ -8,10 +8,10 @@
       <%= @user.email %>
     </p>
     <h5 class= 'ml-auto' >
-      <%= link_to '#', class: 'text-light mr-2' do %>
+      <%= link_to '#', class: 'text-light mr-2 text-decoration-none' do %>
         <%= @user.username %>さんの投稿一覧
       <% end %>
-      <%= link_to '編集', edit_user_path(@user), class: 'text-light' %>
+      <%= link_to '編集', edit_user_path(@user), class: 'text-light text-decoration-none' %>
     </h5>
     <% end %>
   </div>
