@@ -1,32 +1,34 @@
 <section class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container py-3 d-flex">
-    <%= link_to @post.user, class: 'text-decoration-none text-light' do %>
+    <%= link_to @post.user, class: 'nav-link text-light' do %>
       <h1>
-        <%= @post.user.username %>さん
+        <%= @post.user.username %>さん<span class= 'h4 ml-3'>のページへ</span>
       </h1>
     <% end %>
     <% if @post.user.id == current_user.id %>
-      <h5 class= 'ml-auto' >
-        <%= link_to '編集', edit_post_path(@post), class: 'text-light' %>
-      </h5>
+      <ul class='nav'>
+        <li class='nav-item'>
+          <h5 class= 'ml-auto' >
+            <%= link_to '編集', [:edit, @post], class: 'nav-link text-light' %>
+          </h5>
+        </li>
+      </ul>
     <% end %>
   </div>
 </section>
-
 
 <section class='mt-5'>
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-5 offset-1 align-self-baseline">
+      <div class="col-lg-4 offset-2 align-self-baseline">
         <%= attachment_image_tag @post, :image, class: "img-fluid"  %>
       </div>
 
-      <div class="col-lg-5 pt-3 pt-lg-0 content">
+      <div class="col-lg-4 pt-3 pt-lg-0 content">
         <h3><%= @post.title %></h3>
         <p><%= simple_format @post.body %></p>      
-      </div>
-      
+      </div>      
     </div>
   </div>
 </section>

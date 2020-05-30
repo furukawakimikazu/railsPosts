@@ -4,18 +4,29 @@
       <h1 class='text-light'>投稿一覧</h1>
     <% end %>
       <ul class="nav ml-auto">
-        <li class="nav-item align-self-center mr-3">
-          <h3>
-            <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-light' %>
-          </h3>
+        <li class="nav-item align-self-center mr-0.5">
+          <h4>
+            <%= link_to '新規投稿', new_post_path, class: 'nav-link text-light' %>
+          </h4>
         </li>
+        <li class="nav-item align-self-center mr-0.5">
+          <h4>
+            <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-light' %>
+          </h4>
+        </li>
+        <li class="nav-item align-self-center mr-3">
+          <h4>
+            <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-light' %>
+          </h4>
+        </li>
+
       </ul>
   </div>
 </section>
 
 <section class='mt-4'>
   <div class="container">
-    <div class="card-deck" style="width:30rem">
+    <div class="card-deck" style="width:40rem">
       <% @posts.each do |post| %>
         <div class="card text-center">
 
@@ -24,17 +35,16 @@
               <%= attachment_image_tag post, :image, class: 'object-fit' %>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-dark"><%= post.title %></h5>
+              <h6 class="card-title text-dark"><%= post.title %></h6>
           <% end %>
 
-            <%= link_to post.user, class: 'text-decoration-none' do %>
-              <h6 class="card-subtitle my-1 text-dark"><%= post.user.username %>さん</h6>
+              <time><%= post.updated_at.strftime("%y-%-m-%-d %H:%M") %></time> <br> 更新
+
+            <br>
+            <%= link_to post.user, class: 'text-decoration-none btn btn-success' do %>
+              <h6 class="card-subtitle text-light"><%= post.user.username %>さん</h6>
             <% end %>
 
-              <time><%= post.updated_at.strftime("%y-%-m-%-d %H:%M") %></time>　更新
-
-              <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
-              <a href="#" class="card-link">Card link</a>
             </div>
         </div>
       <% end %>
