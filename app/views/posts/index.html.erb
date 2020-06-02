@@ -24,31 +24,21 @@
   </div>
 </section>
 
-<section class='mt-4'>
+<section class=''>
   <div class="container">
-    <div class="card-deck" style="width:40rem">
+    <div class="row">
       <% @posts.each do |post| %>
-        <div class="card text-center">
-
-          <%= link_to post, class: 'text-decoration-none' do %>
-            <div class="card-img-top">
-              <%= attachment_image_tag post, :image, class: 'object-fit' %>
+        <div class="col-md-3 bg-white mt-5">
+          <%= link_to post do %>
+            <div class="pt-3">
+              <%= image_tag attachment_url(post, :image), class: 'img-fluid image_tag'%>
+              <p class="mt-2"><%= post.title %><p>
+              <p><%= post.user.username %></p>
+              <p><%= l post.updated_at, format: :long %></p>
             </div>
-            <div class="card-body">
-              <h6 class="card-title text-dark"><%= post.title %></h6>
           <% end %>
-
-              <time><%= post.updated_at.strftime("%y-%-m-%-d %H:%M") %></time> <br> 更新
-
-            <br>
-            <%= link_to post.user, class: 'text-decoration-none btn btn-success' do %>
-              <h6 class="card-subtitle text-light"><%= post.user.username %>さん</h6>
-            <% end %>
-
-            </div>
         </div>
-      <% end %>
+      <%end %> 
     </div>
   </div>
 </section>
-

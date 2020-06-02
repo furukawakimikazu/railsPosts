@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:edit, :update, :show, :destroy]
   def index
     @posts = Post.all
   end
 
   def show
-    find_post
+
   end
 
   def new
@@ -19,24 +20,28 @@ class PostsController < ApplicationController
     else
       render :new
     end
-    
   end
   
   def edit
-    find_post
     if @post.user != current_user
       redirect_to recipes_path, alert: "不正なアクセスです。"
     end
   end
 
   def update
-    find_post
     if @post.update(post_params)
       redirect_to @post
     else
       render :edit
     end
   end
+
+  def destroy
+    @post.destroy
+    redirect_to @post.user, notice: "投稿を削除しました。"
+
+  end
+  
 
   private
     def post_params

@@ -1,4 +1,16 @@
 @import "bootstrap";
+@import "homes";
+@import "posts";
+@import "users";
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
 
 // ログイン画面
 
@@ -20,9 +32,10 @@
   margin-bottom: -1rem;
 }
 
-.object-fit {
+.image_tag {
+  max-height: 174px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
+
 
