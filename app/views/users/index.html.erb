@@ -13,30 +13,25 @@
   </div>
 </section>
 
-<section class='mt-5'>
+<section class='mt-4'>
   <div class="container">
-    <div class="card-deck" style="width:30rem">
-      <% @users.each do |user| %>
-        <div class="card text-center">
-          <div class="card-img-top">
-            <%= link_to user do %>
-              <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'object-fit' %>
-            <% end %>
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">
-              <%= link_to user.username, user, class: 'text-success' %>
-            </h5>
+    <div class="row">
+            <% @users.each do |user| %>
+        <div class="col-md-3 bg-white mt-5">
+          <%= link_to user, class: 'text-decoration-none' do %>
+            <div class="pt-3">
+              <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'img-fluid image_tag'%>
+              <p class='mt-3'><%= user.username %></p>
+              <p><%= l user.updated_at, format: :long %></p>
+            </div>
             <div class="posts-count">
-              <p class="text-success">
+              <p>
                 投稿数：あとで実装
               </p>
             </div>
-
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      <%end %> 
     </div>
   </div>
 </section>

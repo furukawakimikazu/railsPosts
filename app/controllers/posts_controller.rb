@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -39,9 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to @post.user, notice: "投稿を削除しました。"
-
   end
-  
 
   private
     def post_params
@@ -51,6 +48,4 @@ class PostsController < ApplicationController
     def find_post
       @post = Post.find(params[:id])
     end
-    
-    
 end
