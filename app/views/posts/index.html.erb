@@ -26,9 +26,9 @@
 
 <section class=''>
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <% @posts.each do |post| %>
-        <div class="col-md-3 bg-white mt-5">
+        <div class="col-md-3 bg-white mt-5 ">
           <%= link_to post do %>
             <div class="pt-3">
               <%= image_tag attachment_url(post, :image), class: 'img-fluid image_tag'%>
