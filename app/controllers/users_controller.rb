@@ -11,7 +11,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    if @user != current_user
+      redirect_to current_user
+    end
   end
 
   def update

@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   
   def edit
     if @post.user != current_user
-      redirect_to recipes_path, alert: "不正なアクセスです。"
+      redirect_to posts_path
     end
   end
 
