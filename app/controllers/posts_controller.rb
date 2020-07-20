@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   
   def edit
     if @post.user != current_user
-      redirect_to posts_path
+      redirect_to posts_path, notice: "連絡先を登録しました"
     end
   end
 
