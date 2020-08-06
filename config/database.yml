@@ -75,11 +75,17 @@ test:
 #
 # You can use this database configuration with:
 #
-  production:
-    url: <%= ENV['DATABASE_URL'] %>
+  # production:
+  #   url: <%= ENV['DATABASE_URL'] %>
 #
 # production:
 #   <<: *default
 #   database: railsPosts_production
 #   username: railsPosts
 #   password: <%= ENV['RAILSPOSTS_DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
