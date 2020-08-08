@@ -31,7 +31,7 @@
         <div class="col-md-3 bg-white mt-5 ">
           <%= link_to post do %>
             <div class="pt-3">
-              <%= image_tag attachment_url(post, :profile_image), class: 'img-fluid image_tag'%>
+              <%= attachment_image_tag post, :image, class: 'img-fluid image_tag'%>
               <p class="mt-2"><%= post.title %><p>
               <p><%= post.user.username %></p>
               <p><%= l post.updated_at, format: :long %></p>
